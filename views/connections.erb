@@ -1,0 +1,22 @@
+<h3>All Connections</h3>
+<ul class="collection">
+<% @connections.each do |connection| 
+    @user = User.find(connection.user_id) 
+    @follower = User.find(connection.follower_id) %>
+    <li class="collection-item avatar">
+      <img src="<%= @user.profile_pic_url%>" alt="" class="circle">
+      <span class="title"><%= @user.screenname %></span>
+      <p><%= @user.first %> <%= @user.last %><br>
+         <%= @user.email %> - ID <%= @user.id %>
+      </p>
+      <p></p><img src="<%= @follower.profile_pic_url%>" alt="" class="circle">
+      <span class="title"><%= @follower.screenname %></span>
+      <p><%= @follower.first %> <%= @follower.last %><br>
+         <%= @follower.email %> - ID <%= @follower.id %>
+      </p>
+      
+    </li>
+<% end %>
+</ul>
+
+<a href="/">Back to Home</a>

@@ -1,14 +1,15 @@
 <h3>All Guests</h3>
-<table>
+<ul class="collection">
 <% @users.each do |user| %>
-	<tr>
-		<td><%= user.first %></td>
-		<td><%= user.last %></td>
-		<td><%= user.email %></td>
-		<td><%= user.screenname %></td>
-		<td><%= user.password %></td>
-		<td><%= user.social_security %></td>
-	</tr>
+    <li class="collection-item avatar">
+      <img src="<%= user.profile_pic_url%>" alt="" class="circle">
+      <span class="title"><%= user.screenname %></span>
+      <p><%= user.first %> <%= user.last %><br>
+         <%= user.email %> - ID= <%= user.id %>
+      </p>
+      
+    </li>
 <% end %>
-</table>
-<a href="/">Back to Home</a>
+</ul>
+
+<a href="/tweets">Back to Home</a>

@@ -10,19 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_16_175415) do
+ActiveRecord::Schema.define(version: 2018_10_24_165228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "guests", force: :cascade do |t|
-    t.string "name"
-    t.string "message"
+  create_table "connections", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "follower_id"
   end
 
   create_table "tweets", force: :cascade do |t|
-    t.integer "guestbook_id"
+    t.string "user_id"
     t.string "message"
+    t.string "hashtags"
+    t.string "media_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_10_16_175415) do
     t.string "email"
     t.string "password"
     t.string "social_security"
+    t.string "profile_pic_url"
   end
 
 end

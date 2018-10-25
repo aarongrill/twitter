@@ -1,6 +1,6 @@
 development:
   adapter: postgresql
-  database: guestbook
+  database: twitter
   username: <%= ENV['grill'] %>
   password: <%= ENV['panther'] %>
   host: localhost

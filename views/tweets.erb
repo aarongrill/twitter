@@ -1,0 +1,14 @@
+<h3>Tweets</h3>
+<ul class="collection">
+<% @tweets.each do |tweet| 
+    @user = User.find(tweet.user_id) %>
+    <li class="collection-item avatar">
+      <img src="<%= @user.profile_pic_url%>" alt="" class="circle">
+      <span class="title"><%= @user.screenname %></span>
+        <p> <%= tweet.message %>
+      </p>
+    </li>
+<% end %>
+</ul>
+
+<a href="/tweets">Back to Home</a>
