@@ -55,7 +55,7 @@ end
 
 #connection (followers) controllers
 post '/submit_connection' do
-	@connection = Connection.new(params[:user])
+	@connection = Connection.new(params[:connection])
 	if @connection.save
 		redirect '/connections'
 	else
