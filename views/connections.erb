@@ -3,18 +3,30 @@
 <% @connections.each do |connection|
     user = User.find(connection.user_id)
     follower = User.find(connection.follower_id) %>
-    <li class="collection-item avatar">
-      <img src="<%= user.profile_pic_url%>" alt="" class="circle">
-      <span class="title"><%= user.screenname %></span>
-      <p><%= user.first %> <%= user.last %><br>
-         <%= user.email %> - ID <%= user.id %>
-      </p>
-      <p><img src="<%= follower.profile_pic_url%>" alt="" class="circle">
-      <span class="title"> <%= follower.screenname %></span>
-      <p><%= follower.first %> <%= follower.last %><br>
-         <%= follower.email %> - ID <%= follower.id %>
-      </p>
-      
+    <li class="collection-item">
+        <div class="row">
+            <div class="col s3">
+                <p style="float: left">
+              <img src="<%= user.profile_pic_url%>" alt="" width="100px" height="100px" class="circle">
+              </p>
+              <p style="float: left">
+              <span class="title"><%= user.screenname %></span>
+              <%= user.first %> <%= user.last %><br>
+                 <%= user.email %> - ID <%= user.id %>
+                 </p>
+              </div>
+              <div class="col s1"><i class="material-icons">compare_arrows</i></div>
+              <div class="col s3">
+                  <p style="float: left">
+                  <img src="<%= follower.profile_pic_url%>" alt="" width="100px" height="100px" class="circle">
+                  </p>
+                  <p style="float: left">
+                  <span class="title"> <%= follower.screenname %></span>
+                 <%= follower.first %> <%= follower.last %><br>
+                     <%= follower.email %> - ID <%= follower.id %>
+                  </p>
+              </div>
+            
     </li>
 <% end %>
 </ul>
