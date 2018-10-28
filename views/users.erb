@@ -1,4 +1,11 @@
-<h3>All Guests</h3>
+<h3>All Users</h3>
+<% sessionid = session[:id]
+if sessionid != nil
+    @user = User.find(sessionid)  %>
+    Welcome <%= @user.first %>! Session ID: <%= session[:id] %>
+
+<% end %>
+
 <ul class="collection">
 <% @users.each do |user| %>
     <li class="collection-item avatar">

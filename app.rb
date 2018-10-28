@@ -79,6 +79,7 @@ end
 get '/registrations/signup' do
     erb :'/registrations/signup'
 end
+
 post '/registrations' do
 	@user = User.new(params[:user])
 	if @user.save

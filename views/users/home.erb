@@ -1,6 +1,7 @@
 <% sessionid = session[:id]
 @user = User.find(sessionid) 
-    @tweets = Tweet.all %>
+@tweets = Tweet.where(user_id: Connection.pluck(:follower_id))
+ %>
 Welcome <%= @user.first %>! Session ID: <%= session[:id] %><br>
 <h3>Tweets</h3>
 <ul class="collection">
